@@ -20,7 +20,6 @@ public class KotDAO {
 	@Autowired
 	private DataSource dataSource;
 
-	 List<Kot> kotyList = new ArrayList<Kot>();
 	public void dodajKota(Kot kot) {
 		String sql = "INSERT INTO koty"
 				+ " (kot_imie, kot_waga, kot_dataUrodzin, kot_imieOpiekuna) VALUES (?, ?, ? , ?)";
@@ -48,14 +47,12 @@ public class KotDAO {
 	}
 
 	public List<Kot> getKoty() {
-		kotyList.clear();
-		Integer kotId = 1;
-		String sql = "SELECT * FROM koty WHERE kot_id = ?";
+		 List<Kot> kotyList = new ArrayList<Kot>();
+		String sql = "SELECT * FROM koty";
 		Connection conn = null;
 		try {
 			conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, kotId);
 			Kot kot = null;
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
@@ -65,11 +62,10 @@ public class KotDAO {
 				kot.setWaga(rs.getFloat("kot_waga"));
 				kot.setDataUrodzenia(rs.getDate("kot_dataUrodzin"));
 				kot.setImieOpiekuna(rs.getString("kot_imieOpiekuna"));
-				rs.close();
-				ps.close();
-				kotId++;
 				kotyList.add(kot);
 			}
+			rs.close();
+			ps.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
