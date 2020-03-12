@@ -30,6 +30,7 @@ public class KotyController {
 		return "lista";
 	}
 	
+	
 	@RequestMapping("/dodaj")
 	public String dodajKota(HttpServletRequest request, @ModelAttribute("kotDto") @Valid kotDTO kotDto, BindingResult result) {
 		if (request.getMethod().equalsIgnoreCase("post") && !result.hasErrors())

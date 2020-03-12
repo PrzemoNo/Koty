@@ -1,7 +1,6 @@
 package pl.kobietydokodu.koty;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,7 +28,7 @@ public class KotDAO {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, kot.getImie());
 			ps.setFloat(2, kot.getWaga());
-			ps.setDate(3, (Date) kot.getDataUrodzenia());
+			ps.setDate(3, convertUtilToSql(kot.getDataUrodzenia()));
 			ps.setString(4, kot.getImieOpiekuna());
 			ps.execute();
 			ps.close();
@@ -112,4 +111,8 @@ public class KotDAO {
 		}
 		return null;
 	}
+    private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
+    }
 }

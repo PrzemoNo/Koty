@@ -26,15 +26,12 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-			<bean id="dataSource"
-			class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-			<property name="driverClassName"
-				value="com.mysql.jdbc.Driver" />
-			<property name="url"
-				value="jdbc:mysql://localhost:3306/koty" />
-			<property name="username" value="login" />
-			<property name="password" value="haslo" />
-		</bean>
-	
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/koty" />
+		<property name="username" value="Adminstrator" />
+	</bean>
+
 	<mvc:annotation-driven />
 </beans>
