@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.sql.DataSource;
 import javax.transaction.Transactional;
 
@@ -22,8 +24,8 @@ public class KotDAO {
 	@PersistenceContext
 	EntityManager entityManager;
 	
-	//@Autowired
-	//private DataSource dataSource;
+	@Autowired
+	private DataSource dataSource;
 
 	@Transactional
 	public void dodajKota(Kot kot) {	
@@ -58,12 +60,12 @@ public class KotDAO {
 
 	}
 	 */
-	
 	@Transactional
 	public List<Kot> getKoty() {
 		
-		Query query = entityManager.createQuery("SELECT k FROM koty k");
+		Query query = entityManager.createQuery("SELECT k FROM Koty k");
 		List<Kot> kotyList = new ArrayList<Kot>();
+		
 		kotyList = query.getResultList();
 		if (!kotyList.equals(null)) return kotyList;
 		List<Kot> kotyList1 = new ArrayList<Kot>();

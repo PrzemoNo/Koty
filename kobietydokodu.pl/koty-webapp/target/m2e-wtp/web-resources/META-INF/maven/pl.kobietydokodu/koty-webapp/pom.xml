@@ -9,12 +9,17 @@
 	</parent>
 	<artifactId>koty-webapp</artifactId>
 	<packaging>war</packaging>
-	<dependencies>
 
+	<dependencies>
 		<dependency>
 			<groupId>pl.kobietydokodu</groupId>
 			<artifactId>koty-application</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.2.4.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -38,7 +43,11 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>5.2.4.RELEASE</version>
 		</dependency>
-
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.19</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -71,14 +80,18 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.0.0.Alpha4</version>
-			<type>pom</type>
+			<version>5.4.12.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>6.0.0.Alpha4</version>
-			<type>pom</type>
+			<version>5.4.12.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.ow2.asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>7.3.1</version>
 		</dependency>
 
 	</dependencies>

@@ -2,12 +2,29 @@ package pl.kobietydokodu.koty.domain;
 
 import java.util.Date ;
 
-public class Kot {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Kot {
+	
+  
     private String imie;
+    
+
     private Date dataUrodzenia;
+    
+
     private Float waga;
+    
+ 
     private String imieOpiekuna;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer kotId;
 
     public String getImie() {
