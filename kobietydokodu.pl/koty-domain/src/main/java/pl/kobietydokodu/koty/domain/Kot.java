@@ -16,7 +16,7 @@ public class Kot {
 	@Column(name = "kot_imie")
     private String imie;
     
-	@Column(name = "kot_dataUrodzenia")
+	@Column(name = "kot_dataUrodzin")
     private Date dataUrodzenia;
     
 	@Column(name = "kot_waga")

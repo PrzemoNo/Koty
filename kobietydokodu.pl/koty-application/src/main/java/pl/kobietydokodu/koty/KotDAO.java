@@ -1,13 +1,15 @@
 package pl.kobietydokodu.koty;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.sql.DataSource;
 import javax.transaction.Transactional;
 
@@ -64,6 +66,7 @@ public class KotDAO {
 		
 		Query query = entityManager.createQuery("SELECT k FROM koty k");
 		List<Kot> kotyList = new ArrayList<Kot>();
+		//System.out.println(query.getResultList());
 		kotyList = query.getResultList();
 		if (!kotyList.equals(null)) return kotyList;
 		List<Kot> kotyList1 = new ArrayList<Kot>();
