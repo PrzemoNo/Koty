@@ -27,6 +27,7 @@ public class Kot {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="kot_id")
     private Integer kotId;
 
     public String getImie() {

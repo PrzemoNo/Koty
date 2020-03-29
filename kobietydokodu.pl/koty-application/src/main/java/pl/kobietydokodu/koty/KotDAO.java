@@ -21,8 +21,9 @@ public class KotDAO {
 
 	@PersistenceContext
 	EntityManager entityManager;
-	@Autowired	
-	private DataSource dataSource;
+	
+	//@Autowired	
+	//private DataSource dataSource;
 
 	@Transactional
 	public void dodajKota(Kot kot) {	
