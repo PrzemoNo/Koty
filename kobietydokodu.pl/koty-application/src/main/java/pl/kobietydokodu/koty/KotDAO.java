@@ -18,12 +18,11 @@ import pl.kobietydokodu.koty.domain.Kot;
 
 @Repository
 public class KotDAO {
-	
+
 	@PersistenceContext
 	EntityManager entityManager;
-	
-	//@Autowired
-	//private DataSource dataSource;
+	@Autowired	
+	private DataSource dataSource;
 
 	@Transactional
 	public void dodajKota(Kot kot) {	

@@ -1,23 +1,32 @@
 package pl.kobietydokodu.koty.DTO;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name="koty")
 public class kotDTO {
-	
 	@NotBlank
 	@Size(min = 3)
+	@Column(name="kot_imie")
 	private String imie;
 	
 	@NotBlank
+	@Column(name = "kot_imieOpiekuna")
 	private String imieOpiekuna;
 	
 	@NotNull
+	@Column(name = "kot_waga")
 	private Float waga;
 	
+
 	@Pattern(regexp="^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$")
+	@Column(name = "kot_dataUrodzenia")
 	private String dataUrodzenia;
 
 

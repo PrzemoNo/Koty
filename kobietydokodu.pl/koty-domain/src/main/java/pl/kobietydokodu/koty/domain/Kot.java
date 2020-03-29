@@ -7,20 +7,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="koty")
 public class Kot {
-	
-  
+
+	@Column(name = "kot_imie")
     private String imie;
     
-
+	@Column(name = "kot_dataUrodzenia")
     private Date dataUrodzenia;
     
-
+	@Column(name = "kot_waga")
     private Float waga;
     
- 
+	@Column(name = "kot_imieOpiekuna")
     private String imieOpiekuna;
     
     @Id
